@@ -1,0 +1,21 @@
+
+    server:
+      port: ${CONFIG_PORT:8888}
+     
+    spring:
+      application:
+        name: config-server
+      cloud:
+        config:
+          server:
+            git:
+              uri: https://github.com/jblancor/config_repo
+              username: ${GITHUB_USER}
+              password: ${GITHUB_PASS}
+      
+    eureka:
+      client:
+        service-url:
+          defaultZone: ${EUREKA_URI:http://localhost:${EUREKA_PORT:8761}/eureka}
+        register-with-eureka: true
+
